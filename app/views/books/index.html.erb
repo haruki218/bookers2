@@ -1,16 +1,12 @@
 <h2>User info</h2>
-
 <%= image_tag current_user.get_image(100, 100) %>
-
 <table>
     <tr><th>name</th><th><%= current_user.name %></th></tr>
     <tr><th>introductuion</th><th><%= current_user.introduction %></th></tr>
 </table>
-
 <%= link_to edit_user_path(current_user.id), class: 'btn btn-outline-secondary btn-block' do %>
-    <i class="fa-solid fa-user-gear"></i>
+  <i class="fa-solid fa-user-gear"></i>
 <% end %>
-
 
 
 <h2>New book</h2>
@@ -41,7 +37,9 @@
           <%= image_tag book.user.get_image(80, 80) %>
         <% end %>
       </td>
-      <td><%= book.title %></td>
+      <td>
+        <%= link_to book.title, book_path(book.id) %>
+      </td>
       <td><%= book.body %></td>
     </tr>
   </tbody>
