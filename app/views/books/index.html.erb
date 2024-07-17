@@ -1,7 +1,4 @@
 
-
-
-
 <h2>New book</h2>
 <%= form_with model: @book do |f| %>
   <h4>Title</h4>
@@ -10,3 +7,25 @@
   <%= f.text_area :body %>
   <%= f.submit 'Create Book' %>
 <% end %>
+
+
+<h2>Books</h2>
+<table class="table rable-hover table-inverse">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Opinion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <% @books.each do |book| %>
+  <tbody>
+    <tr>
+      <td><%= image_tag @user.get_image(80, 80) %></td>
+      <td><%= book.title %></td>
+      <td><%= book.body %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
